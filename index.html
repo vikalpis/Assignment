@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Plumbing Company</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'purple-custom': '#3c1053',
+                    },
+                    backgroundImage: {
+                        'diagonal-split': 'linear-gradient(160deg, #3c1053 50%, white 50%)',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .service-card {
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="flex justify-center item-center bg-white ">
+
+  
+    <div id="assignment" class="bg-diagonal-split text-white py-12 px-4 md:px-8 lg:px-16 mb-2 mt-40">
+        <div class="max-w-7xl mx-auto">
+            <h2 id="text" class="text-4xl font-bold mb-8">OUR SERVICES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+
+
+
+                <div class="service-card bg-white text-purple-custom p-6 rounded-lg shadow-lg cursor-pointer">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-white-custom p-3 border-4 border-purple-custom rounded-full">
+                            <i data-feather="smartphone" class="w-8 h-8 text-purple"></i>
+                        </div>
+
+
+
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Emergency Plumbing Services</h3>
+                    <p class="text-sm text-gray-600 mb-4 text-center">Our plumbers are ready to go 24/7 for emergencies - including nights, weekends and holidays.</p>
+                    <div class="text-center">
+                        <a href="#" class="text-purple-custom font-semibold hover:underline">EXPLORE THIS SERVICE &gt;</a>
+                    </div>
+                </div>
+                <div class="service-card bg-white text-purple-custom p-6 rounded-lg shadow-lg cursor-pointer">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-white p-3 border-4 border-purple-custom rounded-full">
+                            <i data-feather="droplet" class="w-8 h-8 text-purple"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Plumbing and Drains</h3>
+                    <p class="text-sm text-gray-600 mb-4 text-center">As the largest plumbing and drain service company, we make thousands of repairs every day.</p>
+                    <div class="text-center">
+                        <a href="#" class="text-purple-custom font-semibold hover:underline">EXPLORE THIS SERVICE &gt;</a>
+                    </div>
+                </div>
+                <div class="service-card bg-white text-purple-custom p-6 rounded-lg shadow-lg cursor-pointer">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-white p-3 border-4 border-purple-custom rounded-full">
+                            <i data-feather="droplet" class="w-8 h-8 text-purple-custom "></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Water Damage</h3>
+                    <p class="text-sm text-gray-600 mb-4 text-center">Our teams are equipped with state-of-the-art water extraction and cleanup equipment.</p>
+                    <div class="text-center">
+                        <a href="#" class="text-purple-custom font-semibold hover:underline">EXPLORE THIS SERVICE &gt;</a>
+                    </div>
+                </div>
+                <div class="service-card bg-white text-purple-custom p-6 rounded-lg shadow-lg cursor-pointer">
+                    <div class="flex justify-center mb-4">
+                        <div class="bg-white p-3 border-4 border-purple-custom rounded-full">
+                            <i data-feather="zap" class="w-8 h-8 text-purple-custom"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-center">Water Heaters</h3>
+                    <p class="text-sm text-gray-600 mb-4 text-center">Trust Roto-Rooter for repair and replacement of gas, electric and tankless water heaters.</p>
+                    <div class="text-center">
+                        <a href="#" class="text-purple-custom font-semibold hover:underline">EXPLORE THIS SERVICE &gt;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div >
+
+    </div>
+
+    <script>
+        feather.replace();
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, { rotation: 360, duration: 0.5 });
+            });
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { rotation: 0, duration: 0.5 });
+            });
+        });
+
+
+        function BreakTheText (){
+var h1Text = document.querySelector("#text")
+var h1 = h1Text.textContent
+// console.log(h1Text);
+
+var splittedText = h1.split("")
+// console.log(splittedText);
+var halfvalue = splittedText.length/2
+
+var clutter = ""
+
+splittedText.forEach((elem, idx)=>{
+    if (halfvalue>idx) {
+        clutter += `<span class="a">${elem}</span>`
+    } else {
+        clutter += `<span class= "b">${elem}</span>`
+    }
+   
+})
+h1Text.innerHTML = clutter
+}
+
+BreakTheText()
+
+
+gsap.from(".a",{
+    y : 50 ,
+    duration: 0.8,
+    delay: 0.5,
+    opacity: 0,
+    stagger: 0.15,
+
+})
+gsap.from(".b",{
+    y : 50 ,
+    duration: 0.8,
+    delay: 0.5,
+    opacity: 0,
+    stagger: -0.15,
+
+})
+
+    </script>
+</body>
+</html>
